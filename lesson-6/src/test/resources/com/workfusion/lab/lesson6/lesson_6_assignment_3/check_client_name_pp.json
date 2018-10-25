@@ -1,0 +1,14 @@
+{
+  "@type": "java.util.ArrayList",
+  "@items": [
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "client_name",
+      "value": "Scottie Scottie Collins IV",
+      "score": "0.5",
+      "begin": 202,
+      "end": 228,
+      "text": "scottie scottie collins IV"
+    }
+  ]
+}

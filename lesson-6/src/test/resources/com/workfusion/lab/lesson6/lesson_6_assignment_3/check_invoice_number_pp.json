@@ -1,0 +1,14 @@
+{
+  "@type": "java.util.ArrayList",
+  "@items": [
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "invoice_number",
+      "value": "7540253933",
+      "score": "0.5",
+      "begin": 65,
+      "end": 76,
+      "text": "N7540253933"
+    }
+  ]
+}

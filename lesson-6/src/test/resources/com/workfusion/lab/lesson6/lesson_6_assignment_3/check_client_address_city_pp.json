@@ -1,0 +1,14 @@
+{
+  "@type": "java.util.ArrayList",
+  "@items": [
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "client_address_city",
+      "value": "Ciarabury",
+      "score": "0.5",
+      "begin": 260,
+      "end": 271,
+      "text": "Ciarabury ◊"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "@type": "java.util.ArrayList",
+  "@items": [
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "price",
+      "value": "325.60",
+      "score": "0.5",
+      "begin": 354,
+      "end": 362,
+      "text": " 325.60 "
+    },
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "price",
+      "value": "31.90",
+      "score": "0.5",
+      "begin": 450,
+      "end": 457,
+      "text": " 31.90 "
+    },
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "price",
+      "value": "284.21",
+      "score": "0.5",
+      "begin": 557,
+      "end": 565,
+      "text": " 284.21 "
+    }
+  ]
+}

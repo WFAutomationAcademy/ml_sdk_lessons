@@ -1,0 +1,14 @@
+{
+  "@type": "java.util.ArrayList",
+  "@items": [
+    {
+      "@type": "com.workfusion.lab.model.TestField",
+      "name": "client_address_state",
+      "value": "NM",
+      "score": "0.5",
+      "begin": 248,
+      "end": 250,
+      "text": "nm"
+    }
+  ]
+}
