@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.workfusion.ml</groupId>
         <artifactId>hypermodel-parent</artifactId>
-        <version>9.2.0.20</version>
+        <version>10.2.0.17</version>
     </parent>
 
     <groupId>com.workfusion.lab</groupId>
@@ -16,7 +16,7 @@
     <properties>
         <hypermodel.output.dir>${basedir}/deploy/</hypermodel.output.dir>
         <hypermodel.id>none</hypermodel.id>
-        <ml.sdk.version>9.2.0.20</ml.sdk.version>
+        <ml.sdk.version>10.2.0.17</ml.sdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipObfuscation>true</skipObfuscation>
     </properties>
