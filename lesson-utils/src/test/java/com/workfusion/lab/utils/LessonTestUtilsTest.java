@@ -18,7 +18,7 @@ public class LessonTestUtilsTest {
         BaseLessonTest t = new BaseLessonTest();
         IeDocument document = t.getDocument("documents/lesson_4_assignment_1.html");
         Collection<Tag> tags = document.findAll(Tag.class);
-        assertThat(tags.size()).isEqualTo(466);
+        assertThat(tags.size()).isEqualTo(302);
 
         t.addFields(document, "total");
         Collection<Field> fields = document.findFields("total");
