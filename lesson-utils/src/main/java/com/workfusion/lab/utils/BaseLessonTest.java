@@ -56,11 +56,9 @@ import com.workfusion.nlp.uima.api.parameter.sweeping.Dimension;
 import com.workfusion.nlp.uima.pipeline.constants.ConfigurationConstants;
 import com.workfusion.nlp.uima.pipeline.constants.PipelineConstants;
 import com.workfusion.nlp.uima.util.JsonSerializationUtil;
-import com.workfusion.nlp.uima.workflow.task.hpo.HpoConfiguration;
 import com.workfusion.vds.nlp.model.configuration.ConfigurationBuilder;
 import com.workfusion.vds.nlp.model.configuration.ConfigurationData;
 import com.workfusion.vds.nlp.model.configuration.DefaultConfigurationContext;
-import com.workfusion.vds.nlp.uima.model.UimaElementFactory;
 import com.workfusion.vds.nlp.uima.model.cache.DefaultCacheBuilder;
 import com.workfusion.vds.nlp.uima.model.lifecycle.LifecycleEventExecutor;
 import com.workfusion.vds.sdk.api.nlp.annotator.Annotator;
@@ -124,7 +122,9 @@ public class BaseLessonTest {
      * @return
      */
     protected DefaultConfigurationContext getConfigurationContext() {
-        return new DefaultConfigurationContext(getTestFieldInfo(), new HashMap<>());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("hyperModelClass", "com.workfusion.automl.hypermodel.ie.IeGenericSe30Hypermodel");
+        return new DefaultConfigurationContext(getTestFieldInfo(), parameters);
     }
 
     /**
@@ -132,7 +132,7 @@ public class BaseLessonTest {
      */
     protected FieldInfo getTestFieldInfo() {
         return new FieldInfo.Builder("test")
-                .type(FieldType.FREE_TEXT)
+                .type(FieldType.TEXT)
                 .build();
     }
 
@@ -159,7 +159,9 @@ public class BaseLessonTest {
      * Helper method: returns a configuration dimension from the specified model configuration and field info.
      */
     protected ConfigurationData buildConfiguration(Class<?> configurationClass, FieldInfo fieldInfo) {
-        return buildConfiguration(configurationClass, new DefaultConfigurationContext(fieldInfo, new HashMap<>()));
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("hyperModelClass", "com.workfusion.automl.hypermodel.ie.IeGenericSe30Hypermodel");
+        return buildConfiguration(configurationClass, new DefaultConfigurationContext(fieldInfo, parameters));
     }
 
     /**
@@ -260,15 +262,6 @@ public class BaseLessonTest {
      */
     protected void initializeAnnotator(Annotator annotator) {
         LifecycleEventExecutor.getInstance().executeInit(annotator, Collections.emptyMap());
-    }
-
-    /**
-     * Calls fe's method marked by @OnInit to initialize the fe if needed.
-     */
-    protected void initializeFe(FeatureExtractor fe) {
-        Class focusElementClass = UimaElementFactory.getInstance().findElementType(org.cleartk.token.type.Token.class);
-        DefaultCacheBuilder indexBuilder = new DefaultCacheBuilder();
-        LifecycleEventExecutor.getInstance().executeInit(fe, Collections.emptyMap(), indexBuilder, focusElementClass);
     }
 
     /**
@@ -881,19 +874,6 @@ public class BaseLessonTest {
         return new File(traingPath, "training/work/pre-eval/" + submodelName + "/hpo-config.json");
     }
 
-    protected HpoConfiguration getHpoConfiguration(File hpoConfigFile) {
-        ExclusionStrategy excludeInterfaceFields = new FieldsExclusionStrategy();
-        Gson gson = new GsonBuilder()
-                .setExclusionStrategies(excludeInterfaceFields)
-                .create();
-        try {
-            return gson.fromJson(new FileReader(hpoConfigFile), HpoConfiguration.class);
-        } catch (FileNotFoundException e) {
-            fail("Cannot find configuration file " + hpoConfigFile + " " + e);
-        }
-        return null;
-    }
-
     private Map<String, Object> loadConfigurationFromFile(File configurationFile) {
         try (InputStream stream = new BufferedInputStream(new FileInputStream(configurationFile))) {
             return (Map<String, Object>) JsonSerializationUtil.readObject(stream);
@@ -938,12 +918,6 @@ public class BaseLessonTest {
         Condition<FeatureExtractor> featureExtractorForProduct = new Condition<>(fe -> fe.getClass().isAssignableFrom(featureExtractor[1]) || fe.getClass().isAssignableFrom(featureExtractor[2]), "");
         assertThat(featureExtractors).areExactly(1, featureExtractorForProduct);
 
-    }
-
-    protected void assertHpoConstant(HpoConfiguration hpoConfiguration) {
-        log("Checking the HPO constants");
-        assertThat(hpoConfiguration.getTimeLimit()).isEqualTo(600);
-        assertThat(hpoConfiguration.getMaxExpWithSameBestScore()).isEqualTo(5);
     }
 
     /**
