@@ -4,7 +4,7 @@
 package com.workfusion.lab.lesson8.model;
 
 import com.workfusion.lab.lesson8.config.Assignment2ModelConfiguration;
-import com.workfusion.vds.nlp.hypermodel.ie.generic.GenericIeHypermodel;
+import com.workfusion.automl.hypermodel.ie.IeGenericSe30Hypermodel;
 import com.workfusion.vds.sdk.api.hypermodel.ModelType;
 import com.workfusion.vds.sdk.api.hypermodel.annotation.HypermodelConfiguration;
 import com.workfusion.vds.sdk.api.hypermodel.annotation.ModelDescription;
@@ -20,7 +20,7 @@ import com.workfusion.vds.sdk.api.hypermodel.annotation.ModelDescription;
         type = ModelType.IE
 )
 @HypermodelConfiguration(Assignment2ModelConfiguration.class)
-public class Assignment2Model extends GenericIeHypermodel {
+public class Assignment2Model extends IeGenericSe30Hypermodel {
 
     public Assignment2Model() throws Exception {
     }
