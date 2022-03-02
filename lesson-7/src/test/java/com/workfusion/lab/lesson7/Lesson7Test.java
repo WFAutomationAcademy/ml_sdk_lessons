@@ -90,7 +90,7 @@ public class Lesson7Test extends BaseLessonTest {
 
         // Obtains model configuration for FIELD_INVOICE_NUMBER
         ConfigurationData configurationData = buildConfiguration(Assignment2ModelConfiguration.class,
-                new FieldInfo.Builder(Assignment2ModelConfiguration.FIELD_INVOICE_NUMBER).type(FieldType.INVOICE_TYPE).build());
+                new FieldInfo.Builder(Assignment2ModelConfiguration.FIELD_INVOICE_NUMBER).type(FieldType.NUMBER).build());
 
         // Obtains defined annotators list.
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData);
@@ -109,7 +109,7 @@ public class Lesson7Test extends BaseLessonTest {
         checkTokenAreProvided(document);
 
         // Process FEs list
-        List<TestTokenFeatures> providedElementFeatures = processFeatures(document, document, fes, true);
+        List<TestTokenFeatures> providedElementFeatures = processFeatures(document, document, fes, false);
         // Checks the provided Features with the assignment pattern
        // writeTestElementFE("lesson_7_assignment_2_check.json");
         checkElementFeatures(providedElementFeatures, "lesson_7_assignment_2_check.json");
@@ -141,7 +141,7 @@ public class Lesson7Test extends BaseLessonTest {
 
         // Obtains model configuration for FIELD_INVOICE_NUMBER
         ConfigurationData configurationData = buildConfiguration(Assignment3ModelConfiguration.class,
-                new FieldInfo.Builder(Assignment3ModelConfiguration.FIELD_INVOICE_NUMBER).type(FieldType.INVOICE_TYPE).build());
+                new FieldInfo.Builder(Assignment3ModelConfiguration.FIELD_INVOICE_NUMBER).type(FieldType.NUMBER).build());
 
         // Obtains defined annotators list.
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData);
@@ -160,7 +160,7 @@ public class Lesson7Test extends BaseLessonTest {
         checkTokenAreProvided(document);
 
         // Process FEs list
-        List<TestTokenFeatures> providedElementFeatures = processFeatures(document, document, fes, true);
+        List<TestTokenFeatures> providedElementFeatures = processFeatures(document, document, fes, false);
         // Checks the provided Features with the assignment pattern
         checkElementFeatures(providedElementFeatures, "lesson_7_assignment_2_invoice_number_check.json");
 
@@ -170,7 +170,7 @@ public class Lesson7Test extends BaseLessonTest {
 
         // Obtains model configuration for FIELD_EMAIL
         configurationData = buildConfiguration(Assignment3ModelConfiguration.class,
-                new FieldInfo.Builder(Assignment3ModelConfiguration.FIELD_EMAIL).type(FieldType.INVOICE_TYPE).build());
+                new FieldInfo.Builder(Assignment3ModelConfiguration.FIELD_EMAIL).type(FieldType.EMAIL).build());
 
         // Obtains defined annotators list.
         annotators = getAnnotatorsFromConfiguration(configurationData, 3);
@@ -189,7 +189,7 @@ public class Lesson7Test extends BaseLessonTest {
         checkTokenAreProvided(document);
 
         // Process FEs list
-        providedElementFeatures = processFeatures(document, document, fes, true);
+        providedElementFeatures = processFeatures(document, document, fes, false);
         // Checks the provided Features with the assignment pattern
         checkElementFeatures(providedElementFeatures, "lesson_7_assignment_2_email_check.json");
     }
@@ -216,7 +216,7 @@ public class Lesson7Test extends BaseLessonTest {
 
         // Obtains model configuration for FIELD_INVOICE_NUMBER
         ConfigurationData configurationData = buildConfiguration(Assignment4ModelConfiguration.class,
-                new FieldInfo.Builder(Assignment4ModelConfiguration.FIELD_PRICE).type(FieldType.PRICE).build());
+                new FieldInfo.Builder(Assignment4ModelConfiguration.FIELD_PRICE).type(FieldType.TEXT).build());
 
         // Obtains defined annotators list.
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData);
