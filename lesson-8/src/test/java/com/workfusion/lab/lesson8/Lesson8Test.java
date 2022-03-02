@@ -62,7 +62,7 @@ public class Lesson8Test extends BaseLessonTest {
 
         // Obtains model configuration for field "total_amount"
         ConfigurationData configurationData = buildConfiguration(Assignment1ModelConfiguration.class,
-                new FieldInfo.Builder("total_amount").type(FieldType.FREE_TEXT).build());
+                new FieldInfo.Builder("total_amount").type(FieldType.TEXT).build());
 
         // Obtains defined annotators list for field "total_amount".
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData, 3);
@@ -139,7 +139,7 @@ public class Lesson8Test extends BaseLessonTest {
 
         // Obtains model configuration for field "client_address_state"
         ConfigurationData configurationData = buildConfiguration(Assignment2ModelConfiguration.class,
-                new FieldInfo.Builder("client_address_state").type(FieldType.FREE_TEXT).build());
+                new FieldInfo.Builder("client_address_state").type(FieldType.TEXT).build());
 
         // Obtains defined annotators list for field "client_address_state".
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData, 3);
