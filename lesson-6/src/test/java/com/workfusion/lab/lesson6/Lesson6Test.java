@@ -55,7 +55,7 @@ public class Lesson6Test extends BaseLessonTest {
 
         // Obtains model configuration for field "invoice_number"
         ConfigurationData configurationData = buildConfiguration(Assignment1ModelConfiguration.class,
-            new FieldInfo.Builder("invoice_number").type(FieldType.FREE_TEXT).build());
+            new FieldInfo.Builder("invoice_number").type(FieldType.TEXT).build());
 
         // Obtains defined annotators list for field "invoice_number".
         List<Annotator> annotators = getAnnotatorsFromConfiguration(configurationData, 3);
@@ -80,7 +80,7 @@ public class Lesson6Test extends BaseLessonTest {
         checkElements(sentences, "lesson_6_assignment_1_check_sentences_1.json");
 
         configurationData = buildConfiguration(Assignment1ModelConfiguration.class,
-                new FieldInfo.Builder("client_address").type(FieldType.FREE_TEXT).build());
+                new FieldInfo.Builder("client_address").type(FieldType.TEXT).build());
 
         // Obtains defined annotators list for field "client_address".
         annotators = getAnnotatorsFromConfiguration(configurationData, 3);
@@ -119,7 +119,7 @@ public class Lesson6Test extends BaseLessonTest {
 
         // Obtains model configuration
         configurationData = buildConfiguration(Assignment2ModelConfiguration.class,
-                new FieldInfo.Builder("address").type(FieldType.FREE_TEXT).build());
+                new FieldInfo.Builder("address").type(FieldType.TEXT).build());
 
         // Obtains defined annotators list.
         fes = getFEsFromConfiguration(configurationData, 1);
@@ -129,7 +129,7 @@ public class Lesson6Test extends BaseLessonTest {
         // Checking invoice_number
         // Obtains model configuration
         configurationData = buildConfiguration(Assignment2ModelConfiguration.class,
-                new FieldInfo.Builder("invoice_number").type(FieldType.INVOICE_TYPE).build());
+                new FieldInfo.Builder("invoice_number").type(FieldType.NUMBER).build());
 
         // Obtains defined fe list.
         fes = getFEsFromConfiguration(configurationData, 1);
