@@ -12,7 +12,6 @@ import org.junit.Test;
 import com.workfusion.lab.lesson4.processing.Assignment1DatePostProcessor;
 import com.workfusion.lab.lesson4.processing.Assignment2TotalPostProcessor;
 import com.workfusion.lab.lesson4.processing.Assignment3IBANPostProcessor;
-import com.workfusion.lab.lesson4.processing.Assignment4AddCountryPostProcessor;
 import com.workfusion.lab.lesson4.processing.Assignment5PricePostProcessor;
 import com.workfusion.lab.lesson4.processing.Assignment6SimilarityPostProcessor;
 import com.workfusion.lab.lesson4.processing.Assignment7ExpandPostProcessor;
@@ -125,44 +124,6 @@ public class Lesson4Test extends BaseLessonTest {
         // Checks the provided fields with the assignment's pattern
         checkElements(fields, "lesson_4_assignment_3_check.json");
     }
-
-    /**
-     * <p><b>Assignment 4</b></p>
-     * <p>
-     *     Provide a Post-Processor which will retrieve country codes from IBAN codes. This means you need to analyze iban fields,
-     *     and then manually add a country field to the {@link Document}. Do not process incorrect IBAN codes.
-     * </p>
-     * <p>Tips:</p>
-     * <ul>
-     *     <li>Use the provided {@link IBANCheckDigit} class to check the IBAN codes.</li>
-     *     <li>Use the {@link Document#add(Element.ElementDescriptor descriptor)} method to add a new field to the Document.</li>
-     *     <li>Do not specify the {@code begin} and {@code end} values because new fields will be added manually and,
-     *     therefore, do not represent any text in the {@link Document}.</li>
-     *     <li>The new {@code country} field should have the same score as the corresponding {@code iban} field.</li>
-     *     <li>The new {@code country} field value should have only the 2-letter country code from ISO 3166-1 alpha-2.</li>
-     * </ul>
-     *
-     * As a template, use {@link Assignment4AddCountryPostProcessor}.
-     */
-    @Test
-    public void assignment4() throws Exception {
-        // Creates ML-SDK Document to process
-        IeDocument document = getDocument("documents/lesson_4_assignment_4.html");
-        // Adds Fields into document based on gold tagging
-        addFields(document, Assignment4AddCountryPostProcessor.FIELD_IBAN);
-
-        // Process postprocessor
-        processPostProcessor(document,
-                new Assignment4AddCountryPostProcessor() //Assignment post-processor
-        );
-
-        // Gets all Fields provided by the Processor to check
-        List<Field> fields = new ArrayList<>(document.findFields(Assignment4AddCountryPostProcessor.FIELD_COUNTRY));
-
-        // Checks the provided fields with the assignment's pattern
-        checkElements(fields, "lesson_4_assignment_4_check.json");
-    }
-
 
     /**
      * <p><b>Assignment 5</b></p>
