@@ -14,5 +14,4 @@
 <li>Lesson 7. Annotators and FEs</li>
 <li>Lesson 8. Train and Execute Model</li>
 <li>Lesson 9. Choose Annotators and FEs Combination</li>
-<li>Lesson 10. Model Configuration with HPO</li>
 </ul>
