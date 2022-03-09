@@ -13,7 +13,7 @@ import com.workfusion.vds.sdk.api.nlp.processing.Processor;
 /**
  * Assignment 6
  */
-public class Assignment6SimilarityPostProcessor implements Processor<IeDocument> {
+public class Assignment5SimilarityPostProcessor implements Processor<IeDocument> {
 
     /**
      * Name of {@link Field} representing a product type.

@@ -10,7 +10,7 @@ import com.workfusion.vds.sdk.api.nlp.processing.Processor;
 /**
  * Assignment 7
  */
-public class Assignment7ExpandPostProcessor implements Processor<IeDocument> {
+public class Assignment6ExpandPostProcessor implements Processor<IeDocument> {
 
     /**
      * Name of {@link Field} representing a product.
